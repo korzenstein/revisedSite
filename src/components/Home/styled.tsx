@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 100%;
 `;
 
 export const TextContainer = styled.div`
@@ -14,16 +15,17 @@ export const TextContainer = styled.div`
 `;
 
 export const HeroImage = styled.div`
-  width: 30%;
-  margin-left: auto;
-  display: flex; /* Ensure the child img respects the parent's dimensions */
+  width: 30%; /* Adjust proportionally to match layout */
+  max-height: 100%; /* Prevent overflow beyond the parent's height */
+  display: flex;
   justify-content: center;
   align-items: center;
 
   img {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
+    width: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent width overflow */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Prevent height overflow */
     object-fit: contain;
   }
 `;

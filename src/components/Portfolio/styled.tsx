@@ -28,17 +28,10 @@ export const PortfolioDisplay = styled.div`
 `;
 
 export const Project = styled.div`
-  opacity: 0;
-  visibility: hidden;
-  width: 0%;
-  height: 0%;
-  order: 1;
-  z-index: 0;
   display: flex;
   align-items: center;
   border: none;
   transition: all 1s ease-in-out;
-  transform: translateX(1900%);
 
   &.display {
     opacity: 1;

@@ -16,6 +16,7 @@ export const GeneralWrapper = styled.div`
   width: 85%;
   max-width: 1320px;
   margin: 0 auto;
+  height: 100%;
 `;
 
 export const Section = styled.section`
@@ -24,7 +25,8 @@ export const Section = styled.section`
   display: flex;
   align-items: center;
   flex-direction: row;
-  max-height: calc(100vh - 10rem);
+  overflow: hidden;
+  /* max-height: calc(100vh - 10rem); */
 `;
 
 export const StyledH2 = styled.h2`

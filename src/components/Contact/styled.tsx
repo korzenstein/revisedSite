@@ -6,10 +6,13 @@ export const ContactSection = styled.section`
   color: #231f20;
   width: 100%;
   align-items: start;
+  position: relative;
+  height: 100%;
 `;
 
 export const ContactText = styled.div`
   display: flex;
+  width: 50%;
 
   p {
     font-size: 0.9rem;
