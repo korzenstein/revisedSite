@@ -1,4 +1,7 @@
 import React from "react";
+import GithubIcon from "../../assets/github.png";
+import LinkedInIcon from "../../assets/linkedin.png";
+import CoffeeMugImage from "../../assets/coffeeMug.png";
 
 import {
   ContactSection,
@@ -7,13 +10,46 @@ import {
   Socials,
   ImgContainer,
 } from "./styled";
-import { GeneralWrapper } from "../LandinPageContainer/styled";
+import { GeneralWrapper, StyledH2 } from "../LandingPageContainer/styled";
+
+const email = "skorzenstein@gmail.com";
+
+const copyToClipboard = () => {
+  navigator.clipboard.writeText(email).then(
+    () => {
+      showSnackbar("Email copied to clipboard!");
+    },
+    (err) => {
+      console.error("Failed to copy text: ", err);
+    }
+  );
+};
+
+const showSnackbar = (message: string) => {
+  const snackbar = document.createElement("div");
+  snackbar.className = "snackbar";
+  snackbar.textContent = message;
+  document.body.appendChild(snackbar);
+
+  // Add the visible class to trigger CSS animations
+  setTimeout(() => {
+    snackbar.classList.add("visible");
+  }, 100);
+
+  // Remove the snackbar after 3 seconds
+  setTimeout(() => {
+    snackbar.classList.remove("visible");
+    setTimeout(() => {
+      document.body.removeChild(snackbar);
+    }, 300); // Wait for transition to complete
+  }, 3000);
+};
 
 const Contact: React.FC = () => {
   return (
     <GeneralWrapper>
-      <ContactSection id="contact">
-        <h2>Contact</h2>
+      <ContactSection>
+        <StyledH2>Contact</StyledH2>
         <ContactText>
           <p>
             {` Let's grab a coffee sometime! Feel free to reach out to me directly at
@@ -23,34 +59,30 @@ const Contact: React.FC = () => {
         </ContactText>
         <div>
           <Socials>
-            <li>
-              <p>skorzenstein@gmail.com</p>
+            <li
+              onClick={copyToClipboard}
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              <p>{email}</p>
             </li>
             <li>
               <a href="https://www.linkedin.com/in/skorzenstein/">
                 <SocialIconWrapper>
                   <img
-                    src="./assets/linkedin.png"
+                    src={LinkedInIcon}
                     alt="Linkedin Icon - link to Stephen Korzenstein's LinkedIn Page"
                   />
                 </SocialIconWrapper>
               </a>
             </li>
-            <li>
-              <a href="https://twitter.com/SKorzenstein">
-                <SocialIconWrapper>
-                  <img
-                    src="./assets/twitter.png"
-                    alt="Twitter Icon - link to Stephen Korzenstein's Twitter Page"
-                  />
-                </SocialIconWrapper>
-              </a>
-            </li>
+
             <li>
               <a href="https://github.com/korzenstein">
                 <SocialIconWrapper>
                   <img
-                    src="./assets/github2.png"
+                    src={GithubIcon}
                     alt="Github Icon - link to Stephen Korzenstein's Github"
                   />
                 </SocialIconWrapper>
@@ -58,7 +90,7 @@ const Contact: React.FC = () => {
             </li>
           </Socials>
           <ImgContainer>
-            <img src="./assets/coffeeMug.png" alt="Coffee mug with steam" />
+            <img src={CoffeeMugImage} alt="Coffee mug with steam" />
           </ImgContainer>
         </div>
       </ContactSection>

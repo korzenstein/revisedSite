@@ -5,8 +5,19 @@ export const NavigationContainer = styled.nav`
   justify-content: space-between;
   align-items: start;
   width: 85%;
-  margin-bottom: auto;
   padding-top: 2rem;
+`;
+
+export const StyledH1 = styled.h1<{ currentSection: string }>`
+  display: flex;
+  flex-direction: column;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+  margin: 0;
+  text-transform: uppercase;
+  transition: color 0.5s ease-in-out;
+  color: ${(props) =>
+    props.currentSection === "portfolio" ? "white" : "#231f20"};
 `;
 
 export const NavList = styled.ul<{ isOpen: boolean }>`
@@ -62,14 +73,29 @@ export const NavButton = styled.button`
   }
 `;
 
-export const NavLink = styled.a<{ isActive?: boolean }>`
+export const NavLink = styled.a<{
+  isActive?: boolean;
+  currentSection?: string;
+}>`
   text-decoration: none;
-  color: ${(props) => (props.isActive ? "#624713" : "black")};
+  color: ${(props) =>
+    props.currentSection === "portfolio"
+      ? "white"
+      : "#231f20"}; /* Color changes based on currentSection */
   font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
   font-size: 1.2rem;
+  transition: color 0.5s ease-in-out, border-bottom 0.5s ease-in-out;
+
+  border-bottom: ${(props) =>
+    props.isActive
+      ? `1px solid ${
+          props.currentSection === "portfolio" ? "white" : "#231f20"
+        }`
+      : "none"};
 
   &:hover {
-    color: #624713;
+    color: ${(props) =>
+      props.currentSection === "portfolio" ? "white" : "#624713"};
   }
 `;
 

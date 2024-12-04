@@ -1,5 +1,5 @@
 import React from "react";
-import { GeneralWrapper } from "../LandinPageContainer/styled";
+import { GeneralWrapper } from "../LandingPageContainer/styled";
 import {
   PortfolioSection,
   SectionTitle,
@@ -16,6 +16,7 @@ import {
   ProjLabel,
   RadioInput,
 } from "./styled";
+import { StyledH2 } from "../LandingPageContainer/styled";
 
 const projects = [
   {
@@ -44,7 +45,9 @@ const projects = [
 const Portfolio: React.FC = () => (
   <GeneralWrapper>
     <PortfolioSection id="portfolio">
-      <SectionTitle>Portfolio</SectionTitle>
+      <StyledH2 style={{ color: "white", borderBottom: "2px white solid" }}>
+        Portfolio
+      </StyledH2>
       <PortfolioContainer>
         <PortfolioDisplay>
           {projects.map((project) => (

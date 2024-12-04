@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   NavigationContainer,
   NavButtonToggle,
@@ -6,6 +6,7 @@ import {
   NavList,
   NavButton,
   IconSpan,
+  StyledH1,
 } from "./styled";
 import { useNavigationStore } from "../../store/store";
 
@@ -15,17 +16,9 @@ const Navigation: React.FC = ({}) => {
 
   return (
     <NavigationContainer>
-      <h1
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          fontSize: "3.2rem",
-          lineHeight: "3.2rem",
-          margin: "0",
-        }}
-      >
+      <StyledH1 currentSection={currentSection}>
         Stephen <span>Korzenstein</span>
-      </h1>
+      </StyledH1>
       {/* Mobile Nav Toggle Button */}
       <NavButtonToggle onClick={toggleNav}>
         <IconSpan>
@@ -48,6 +41,7 @@ const Navigation: React.FC = ({}) => {
         <li>
           <NavLink
             isActive={currentSection === "home"}
+            currentSection={currentSection}
             onClick={() => {
               setCurrentSection("home");
               toggleNav();
@@ -59,6 +53,7 @@ const Navigation: React.FC = ({}) => {
         <li>
           <NavLink
             isActive={currentSection === "portfolio"}
+            currentSection={currentSection}
             onClick={() => {
               setCurrentSection("portfolio");
               toggleNav();
@@ -70,6 +65,7 @@ const Navigation: React.FC = ({}) => {
         <li>
           <NavLink
             isActive={currentSection === "contact"}
+            currentSection={currentSection}
             onClick={() => {
               setCurrentSection("contact");
               toggleNav();

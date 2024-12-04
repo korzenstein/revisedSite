@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const ContactSection = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  color: #231f20;
+  width: 100%;
+  align-items: start;
 `;
 
 export const ContactText = styled.div`
@@ -27,21 +29,21 @@ export const Socials = styled.ul`
   }
 `;
 
-export const SocialIconWrapper = styled.span`
+export const SocialIconWrapper = styled.a`
   width: 1.4rem;
+  height: 1.4rem;
   display: inline-block;
-  opacity: 1;
   position: relative;
-  transition: all 0.2s ease-in-out;
 
   img {
-    position: absolute;
-    top: -1.1rem;
-    left: 0;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
   }
 
   &:hover {
     opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
   }
 `;
 
@@ -50,7 +52,7 @@ export const ImgContainer = styled.div`
   margin-left: auto;
   position: absolute;
   right: 0;
-  top: -2.7rem;
+  bottom: 0;
 
   img {
     width: 100%;

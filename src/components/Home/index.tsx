@@ -8,23 +8,23 @@ import JSIcon from "../../assets/curlyBraces.svg";
 import {
   Container,
   TextContainer,
-  SkillsTitle,
   IntroText,
   Highlight,
   IconSpan,
   HeroImage,
 } from "./styled";
-import { GeneralWrapper, Section, H2 } from "../LandinPageContainer/styled";
+import {
+  GeneralWrapper,
+  Section,
+  StyledH2,
+} from "../LandingPageContainer/styled";
 
 const Home: React.FC = () => (
   <GeneralWrapper>
     <Section>
       <Container>
         <TextContainer>
-          <H2>Front-End Web Developer</H2>
-          <SkillsTitle>
-            <h4>Skills:</h4>
-          </SkillsTitle>
+          <StyledH2>Front-End Web Developer</StyledH2>
           <IntroText>
             <span>
               {`Hi there! I'm Stephen - a front-end developer and avid hiker.
@@ -55,7 +55,7 @@ const Home: React.FC = () => (
             <IconSpan>
               <img src={ReactIcon} alt="React icon" />
             </IconSpan>
-            {`React atom icon and vanilla Javascript`}
+            {` and vanilla Javascript`}
             <IconSpan>
               <img src={JSIcon} alt="JS icon" />
             </IconSpan>

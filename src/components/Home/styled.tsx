@@ -10,24 +10,21 @@ export const TextContainer = styled.div`
   width: 65%;
   display: flex;
   flex-direction: column;
+  color: black;
 `;
 
 export const HeroImage = styled.div`
   width: 30%;
   margin-left: auto;
+  display: flex; /* Ensure the child img respects the parent's dimensions */
+  justify-content: center;
+  align-items: center;
 
   img {
     width: 100%;
     height: auto;
-  }
-`;
-
-export const SkillsTitle = styled.span`
-  h4 {
-    margin: 0.5rem 0 0;
-    line-height: 1.3rem;
-    font-size: 1.2rem;
-    font-weight: 600;
+    max-height: 100%;
+    object-fit: contain;
   }
 `;
 
