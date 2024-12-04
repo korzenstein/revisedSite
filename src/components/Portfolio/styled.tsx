@@ -10,7 +10,6 @@ export const SectionTitle = styled.h2`
 
 export const PortfolioContainer = styled.div`
   width: 100%;
-  max-height: 372px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,14 +32,9 @@ export const Project = styled.div`
   border: none;
   transition: all 1s ease-in-out;
 
-  &.display {
-    opacity: 1;
-    visibility: visible;
-    height: 90%;
-    width: 100%;
-    order: 0;
-    z-index: 20;
-    transform: translateX(0%);
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
@@ -51,9 +45,13 @@ export const ImgContainer = styled.div`
   border-radius: 25px;
 
   img {
-    border-radius: 25px;
+    border-radius: 20px;
     width: 100%;
     height: auto;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 70%;
   }
 `;
 
@@ -66,13 +64,24 @@ export const Content = styled.div`
 
   h4 {
     font-size: 1.1rem;
-    padding: 0;
     margin: 0;
+    line-height: 100%;
   }
 
   p {
     font-size: 1rem;
-    margin: 0.3rem 0;
+    margin: 0;
+    line-height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    h4 {
+      font-size: 0.8rem;
+    }
+
+    p {
+      font-size: 0.7rem;
+    }
   }
 `;
 

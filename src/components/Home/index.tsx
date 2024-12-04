@@ -31,7 +31,7 @@ const Home: React.FC = () => (
                 clean design and a knack for producing `}
             <Highlight
               duration={0.7}
-              delay={7}
+              delay={1.75}
             >{`meaningful experiences.`}</Highlight>{" "}
             {`Instead of
             measuring tape and drywall, I now employ NextJS `}
@@ -43,7 +43,7 @@ const Home: React.FC = () => (
               <img src={CSSIcon} alt="Css3 icon" />
             </IconSpan>
             {`to sculpt `}
-            <Highlight duration={0.2} delay={5}>{`user-friendly`}</Highlight>
+            <Highlight duration={0.2} delay={2.75}>{`user-friendly`}</Highlight>
             {` digital spaces. Collaborating in teams, my process is guided by command line, clear communication and github`}{" "}
             <IconSpan>
               <img src={GithubIcon} alt="Github icon" />

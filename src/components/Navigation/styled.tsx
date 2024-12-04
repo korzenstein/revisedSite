@@ -5,7 +5,11 @@ export const NavigationContainer = styled.nav`
   justify-content: space-between;
   align-items: start;
   width: 85%;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
+
+  @media (max-width: 768px) {
+    padding-top: 1.5rem;
+  }
 `;
 
 export const StyledH1 = styled.h1<{ currentSection: string }>`
@@ -18,6 +22,16 @@ export const StyledH1 = styled.h1<{ currentSection: string }>`
   transition: color 0.5s ease-in-out;
   color: ${(props) =>
     props.currentSection === "portfolio" ? "white" : "#231f20"};
+
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
 `;
 
 export const NavList = styled.ul<{ isOpen: boolean }>`
@@ -29,25 +43,18 @@ export const NavList = styled.ul<{ isOpen: boolean }>`
   margin: 0;
 
   @media (max-width: 768px) {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
     background-color: white;
-    padding: 1rem;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    z-index: 10;
-
-    ${(props) =>
-      props.isOpen
-        ? css`
-            transform: translateX(0%);
-            opacity: 1;
-          `
-        : css`
-            transform: translateX(-100%);
-            opacity: 0;
-          `}
+    z-index: 1000;
+    transform: translateX(${(props) => (props.isOpen ? "0" : "100%")});
+    transition: transform 0.3s ease-in-out;
   }
 `;
 
@@ -56,6 +63,7 @@ export const NavButtonToggle = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1100;
 
   @media (max-width: 768px) {
     display: block;

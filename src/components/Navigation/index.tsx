@@ -9,11 +9,13 @@ import {
   StyledH1,
 } from "./styled";
 import { useNavigationStore } from "../../store/store";
+import NavHamIcon from "../../assets/ham2.png";
 
 const Navigation: React.FC = ({}) => {
   const { isNavOpen, toggleNav, setCurrentSection, currentSection } =
     useNavigationStore();
 
+  console.log(isNavOpen);
   return (
     <NavigationContainer>
       <StyledH1 currentSection={currentSection}>
@@ -22,9 +24,8 @@ const Navigation: React.FC = ({}) => {
       {/* Mobile Nav Toggle Button */}
       <NavButtonToggle onClick={toggleNav}>
         <IconSpan>
-          <img src="/assets/ham2.png" alt="Hamburger menu to open navigation" />
+          <img src={NavHamIcon} alt="Hamburger menu to open navigation" />
         </IconSpan>
-        <span>Tap to {isNavOpen ? "close" : "open"} menu</span>
       </NavButtonToggle>
 
       {/* Navigation Links */}

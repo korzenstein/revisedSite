@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StaticText = styled(motion.span)`
   position: absolute;
-  top: -5px;
+  top: -2px;
   left: 0;
   z-index: 1;
 `;
@@ -56,7 +56,7 @@ const Highlight: React.FC<HighlightProps> = ({ children, delay, duration }) => (
       transition={{
         duration: duration,
         ease: "easeInOut",
-        delay: delay * 0.2,
+        delay: delay * 0.9,
       }}
     >
       {children}

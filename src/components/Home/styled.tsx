@@ -13,6 +13,19 @@ export const TextContainer = styled.div`
   flex-direction: column;
   color: black;
   margin-right: auto;
+
+  p {
+    font-size: 1rem;
+    line-height: 140%;
+  }
+
+  @media (max-width: 768px) {
+    width: 70%;
+    p {
+      font-size: 0.8rem;
+      line-height: 140%;
+    }
+  }
 `;
 
 export const HeroImage = styled.div`
