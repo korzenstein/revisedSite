@@ -12,10 +12,21 @@ export const ContactSection = styled.section`
 
 export const ContactText = styled.div`
   display: flex;
-  width: 50%;
+  width: 45%;
 
   p {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
+
+  @media (max-width: 768px) {
+    width: auto;
+    max-width: 90%;
+
+    p {
+      font-size: 0.8rem;
+      line-height: 1.1rem;
+    }
   }
 `;
 
@@ -55,10 +66,15 @@ export const ImgContainer = styled.div`
   margin-left: auto;
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 10%;
 
   img {
     width: 100%;
     height: auto;
+  }
+
+  @media (max-width: 768px) {
+    width: 15%;
+    top: 30%;
   }
 `;

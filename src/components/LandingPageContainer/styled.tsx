@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LandingPageContainer = styled.main<{ backgroundColor: string }>`
+export const LandingPageContainer = styled.main<{ $backgroundColor: string }>`
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -8,7 +8,7 @@ export const LandingPageContainer = styled.main<{ backgroundColor: string }>`
   max-height: 100vh;
   height: 100%;
   width: 100%;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.$backgroundColor};
   transition: background-color 0.5s ease-in-out;
 `;
 

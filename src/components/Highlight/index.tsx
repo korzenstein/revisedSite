@@ -6,6 +6,11 @@ const StaticText = styled(motion.span)`
   top: -2px;
   left: 0;
   z-index: 1;
+
+  @media (max-width: 768px) {
+    top: -1.5px;
+    left: 0;
+  }
 `;
 
 const HighlightStyled = styled(motion.span)`
@@ -13,6 +18,7 @@ const HighlightStyled = styled(motion.span)`
   display: inline;
   color: inherit;
   z-index: 1;
+  white-space: nowrap;
 
   &::before {
     content: "";

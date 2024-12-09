@@ -3,6 +3,7 @@ import Home from "../Home";
 import Navigation from "../Navigation";
 import Contact from "../Contact";
 import Portfolio from "../Portfolio/Portfolio";
+import Footer from "../Footer";
 import { useNavigationStore } from "../../store/store";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -46,28 +47,32 @@ const FramerContainer: React.FC<FramerContainerProps> = ({
 function LandingPage() {
   const { currentSection } = useNavigationStore();
   return (
-    <LandingPageContainer
-      backgroundColor={sectionBackgroundColors[currentSection] || "#ffffff"}
-    >
-      <Navigation />
-      <AnimatePresence mode="wait">
-        {currentSection === "home" && (
-          <FramerContainer keyName="home" variants={sectionVariants}>
-            <Home />
-          </FramerContainer>
-        )}
-        {currentSection === "contact" && (
-          <FramerContainer keyName="contact" variants={sectionVariants}>
-            <Contact />
-          </FramerContainer>
-        )}
-        {currentSection === "portfolio" && (
-          <FramerContainer keyName="portfolio" variants={sectionVariants}>
-            <Portfolio />
-          </FramerContainer>
-        )}
-      </AnimatePresence>
-    </LandingPageContainer>
+    <>
+      <LandingPageContainer
+        $backgroundColor={sectionBackgroundColors[currentSection] || "#ffffff"}
+      >
+        <Navigation />
+
+        <AnimatePresence mode="wait">
+          {currentSection === "home" && (
+            <FramerContainer keyName="home" variants={sectionVariants}>
+              <Home />
+            </FramerContainer>
+          )}
+          {currentSection === "contact" && (
+            <FramerContainer keyName="contact" variants={sectionVariants}>
+              <Contact />
+            </FramerContainer>
+          )}
+          {currentSection === "portfolio" && (
+            <FramerContainer keyName="portfolio" variants={sectionVariants}>
+              <Portfolio />
+            </FramerContainer>
+          )}
+        </AnimatePresence>
+      </LandingPageContainer>
+      <Footer />
+    </>
   );
 }
 

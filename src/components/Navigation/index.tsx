@@ -18,7 +18,7 @@ const Navigation: React.FC = ({}) => {
   console.log(isNavOpen);
   return (
     <NavigationContainer>
-      <StyledH1 currentSection={currentSection}>
+      <StyledH1 $currentSection={currentSection}>
         Stephen <span>Korzenstein</span>
       </StyledH1>
       {/* Mobile Nav Toggle Button */}
@@ -29,7 +29,7 @@ const Navigation: React.FC = ({}) => {
       </NavButtonToggle>
 
       {/* Navigation Links */}
-      <NavList isOpen={isNavOpen}>
+      <NavList $isOpen={isNavOpen}>
         <NavButton onClick={toggleNav}>
           <IconSpan>
             <img
@@ -41,8 +41,8 @@ const Navigation: React.FC = ({}) => {
         </NavButton>
         <li>
           <NavLink
-            isActive={currentSection === "home"}
-            currentSection={currentSection}
+            $isActive={currentSection === "home"}
+            $currentSection={currentSection}
             onClick={() => {
               setCurrentSection("home");
               toggleNav();
@@ -53,8 +53,8 @@ const Navigation: React.FC = ({}) => {
         </li>
         <li>
           <NavLink
-            isActive={currentSection === "portfolio"}
-            currentSection={currentSection}
+            $isActive={currentSection === "portfolio"}
+            $currentSection={currentSection}
             onClick={() => {
               setCurrentSection("portfolio");
               toggleNav();
@@ -65,8 +65,8 @@ const Navigation: React.FC = ({}) => {
         </li>
         <li>
           <NavLink
-            isActive={currentSection === "contact"}
-            currentSection={currentSection}
+            $isActive={currentSection === "contact"}
+            $currentSection={currentSection}
             onClick={() => {
               setCurrentSection("contact");
               toggleNav();

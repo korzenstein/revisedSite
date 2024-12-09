@@ -12,7 +12,7 @@ export const NavigationContainer = styled.nav`
   }
 `;
 
-export const StyledH1 = styled.h1<{ currentSection: string }>`
+export const StyledH1 = styled.h1<{ $currentSection: string }>`
   display: flex;
   flex-direction: column;
   font-size: 3.2rem;
@@ -21,7 +21,7 @@ export const StyledH1 = styled.h1<{ currentSection: string }>`
   text-transform: uppercase;
   transition: color 0.5s ease-in-out;
   color: ${(props) =>
-    props.currentSection === "portfolio" ? "white" : "#231f20"};
+    props.$currentSection === "portfolio" ? "white" : "#231f20"};
 
   @media (max-width: 768px) {
     font-size: 2.4rem;
@@ -34,7 +34,7 @@ export const StyledH1 = styled.h1<{ currentSection: string }>`
   }
 `;
 
-export const NavList = styled.ul<{ isOpen: boolean }>`
+export const NavList = styled.ul<{ $isOpen: boolean }>`
   display: flex;
   gap: 3rem;
   justify-content: space-between;
@@ -53,7 +53,7 @@ export const NavList = styled.ul<{ isOpen: boolean }>`
     justify-content: center;
     width: 100%;
     z-index: 1000;
-    transform: translateX(${(props) => (props.isOpen ? "0" : "100%")});
+    transform: translateX(${(props) => (props.$isOpen ? "0" : "100%")});
     transition: transform 0.3s ease-in-out;
   }
 `;
@@ -82,28 +82,28 @@ export const NavButton = styled.button`
 `;
 
 export const NavLink = styled.a<{
-  isActive?: boolean;
-  currentSection?: string;
+  $isActive?: boolean;
+  $currentSection?: string;
 }>`
   text-decoration: none;
   color: ${(props) =>
-    props.currentSection === "portfolio"
+    props.$currentSection === "portfolio"
       ? "white"
       : "#231f20"}; /* Color changes based on currentSection */
-  font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
+  font-weight: ${(props) => (props.$isActive ? "bold" : "normal")};
   font-size: 1.2rem;
   transition: color 0.5s ease-in-out, border-bottom 0.5s ease-in-out;
 
   border-bottom: ${(props) =>
-    props.isActive
+    props.$isActive
       ? `1px solid ${
-          props.currentSection === "portfolio" ? "white" : "#231f20"
+          props.$currentSection === "portfolio" ? "white" : "#231f20"
         }`
       : "none"};
 
   &:hover {
     color: ${(props) =>
-      props.currentSection === "portfolio" ? "white" : "#624713"};
+      props.$currentSection === "portfolio" ? "white" : "#624713"};
   }
 `;
 
