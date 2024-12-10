@@ -20,7 +20,7 @@ export const TextContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 70%;
+    width: 82%;
     p {
       font-size: 0.8rem;
       line-height: 140%;
@@ -41,6 +41,12 @@ export const HeroImage = styled.div`
     height: auto;
     max-height: 100%;
     object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    position: absolute;
+    width: 20%;
+    right: 0.8rem;
   }
 `;
 

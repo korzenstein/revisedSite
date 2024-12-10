@@ -23,22 +23,13 @@ const Navigation: React.FC = ({}) => {
       </StyledH1>
       {/* Mobile Nav Toggle Button */}
       <NavButtonToggle onClick={toggleNav}>
-        <IconSpan>
+        <IconSpan $currentSection={currentSection}>
           <img src={NavHamIcon} alt="Hamburger menu to open navigation" />
         </IconSpan>
       </NavButtonToggle>
 
       {/* Navigation Links */}
       <NavList $isOpen={isNavOpen}>
-        <NavButton onClick={toggleNav}>
-          <IconSpan>
-            <img
-              src="/assets/ham2.png"
-              alt="Hamburger menu to close navigation"
-            />
-          </IconSpan>
-          <span>Tap to close menu</span>
-        </NavButton>
         <li>
           <NavLink
             $isActive={currentSection === "home"}

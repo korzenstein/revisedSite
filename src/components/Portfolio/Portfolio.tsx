@@ -14,8 +14,8 @@ import {
   LinkContainer,
   ButtonContainer,
   ProjButton,
-  ProjLabel,
-  RadioInput,
+  DescriptionDesktop,
+  DescriptionMobile,
 } from "./styled";
 import { StyledH2 } from "../LandingPageContainer/styled";
 
@@ -25,13 +25,24 @@ const animationVariants = {
   exit: { opacity: 0, x: -50, transition: { duration: 0.5 } },
 };
 
+const descriptionVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.8 } },
+  exit: { opacity: 0, transition: { duration: 0.4 } },
+};
+
 const Portfolio: React.FC = () => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
 
   const handleProjectChange = (index: number) => {
     setCurrentProjectIndex(index);
+    setIsDescriptionVisible(false);
   };
 
+  const toggleDescription = () => {
+    setIsDescriptionVisible((prev) => !prev);
+  };
   return (
     <GeneralWrapper>
       <PortfolioSection>
@@ -49,28 +60,31 @@ const Portfolio: React.FC = () => {
                 exit="exit"
               >
                 <Project>
-                  <ImgContainer>
-                    <a href={projects[currentProjectIndex].liveLink}>
-                      <img
-                        src={projects[currentProjectIndex].imgSrc}
-                        alt={`${projects[currentProjectIndex].title} website preview`}
-                      />
-                    </a>
+                  <ImgContainer
+                    isDimmed={isDescriptionVisible}
+                    onClick={toggleDescription}
+                  >
+                    <img
+                      src={projects[currentProjectIndex].imgSrc}
+                      alt={`${projects[currentProjectIndex].title} website preview`}
+                    />
+                    {isDescriptionVisible && (
+                      <DescriptionMobile
+                        key="description"
+                        variants={descriptionVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                      >
+                        {projects[currentProjectIndex].description}
+                      </DescriptionMobile>
+                    )}
                   </ImgContainer>
                   <Content>
-                    <h4>{projects[currentProjectIndex].title}</h4>
-                    <p>{projects[currentProjectIndex].description}</p>
+                    <DescriptionDesktop>
+                      {projects[currentProjectIndex].description}
+                    </DescriptionDesktop>
                     <ContentDetails>
-                      <Made>
-                        <p>
-                          Made with:{" "}
-                          {projects[currentProjectIndex].madeWith.map(
-                            (tech) => (
-                              <span key={tech}>{tech}</span>
-                            )
-                          )}
-                        </p>
-                      </Made>
                       <LinkContainer>
                         {projects[currentProjectIndex].githubLink && (
                           <a href={projects[currentProjectIndex].githubLink}>
@@ -81,6 +95,11 @@ const Portfolio: React.FC = () => {
                           Live Link
                         </a>
                       </LinkContainer>
+                      <Made>
+                        {projects[currentProjectIndex].madeWith.map((tech) => (
+                          <span key={tech}>{tech}</span>
+                        ))}
+                      </Made>
                     </ContentDetails>
                   </Content>
                 </Project>
@@ -89,19 +108,13 @@ const Portfolio: React.FC = () => {
           </PortfolioDisplay>
           <ButtonContainer>
             {projects.map((project, index) => (
-              <ProjButton key={project.id}>
-                <ProjLabel
-                  htmlFor={`proj-${project.id}`}
-                  onClick={() => handleProjectChange(index)}
-                >
-                  {project.title.toLowerCase()}
-                </ProjLabel>
-                <RadioInput
-                  id={`proj-${project.id}`}
-                  name="project"
-                  checked={currentProjectIndex === index}
-                  onChange={() => handleProjectChange(index)}
-                />
+              <ProjButton
+                key={project.id}
+                id={`proj-${project.id}`}
+                name="project"
+                onClick={() => handleProjectChange(index)}
+              >
+                {project.title}
               </ProjButton>
             ))}
           </ButtonContainer>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FooterStyled = styled.footer<{ currentSection: string }>`
+export const FooterStyled = styled.footer<{ $currentSection: string }>`
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -14,6 +14,6 @@ export const FooterStyled = styled.footer<{ currentSection: string }>`
     margin: 0;
     transition: 0.4s ease-in-out color;
     color: ${(props) =>
-      props.currentSection === "portfolio" ? "white" : "black"};
+      props.$currentSection === "portfolio" ? "white" : "black"};
   }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const PortfolioSection = styled.section`
   background-size: cover;
@@ -17,7 +18,7 @@ export const PortfolioContainer = styled.div`
 `;
 
 export const PortfolioDisplay = styled.div`
-  border-radius: 55px;
+  border-radius: 1rem;
   background-image: url(../assets/portBackLight1.png);
   width: 100%;
   min-height: 230px;
@@ -34,24 +35,33 @@ export const Project = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
   }
 `;
 
-export const ImgContainer = styled.div`
-  max-width: 30%;
+export const ImgContainer = styled.div<{ $isDimmed: boolean }>`
+  max-width: 40%;
   min-width: 250px;
   margin-right: 1.5rem;
-  border-radius: 25px;
+  border-radius: 1rem;
+
+  /* aspect-ratio: 16 / 9; */
 
   img {
-    border-radius: 20px;
+    border-radius: 0.4rem;
     width: 100%;
     height: auto;
   }
 
   @media (max-width: 768px) {
-    max-width: 70%;
+    max-width: 100%;
+    min-width: 100px;
+    /* width: 100%; */
+    margin-right: 0rem;
+    position: relative;
+    cursor: pointer;
+    opacity: ${(props) =>
+      props.$isDimmed ? 0.5 : 1}; /* Dim image when $isDimmed is true */
   }
 `;
 
@@ -60,16 +70,12 @@ export const Content = styled.div`
   flex-direction: column;
   width: 60%;
   margin-left: 1.2rem;
+  gap: 1rem;
   transition: all 0.1s ease-in-out;
 
   h4 {
+    font-family: "Century";
     font-size: 1.1rem;
-    margin: 0;
-    line-height: 100%;
-  }
-
-  p {
-    font-size: 1rem;
     margin: 0;
     line-height: 100%;
   }
@@ -78,10 +84,26 @@ export const Content = styled.div`
     h4 {
       font-size: 0.8rem;
     }
+  }
+`;
 
-    p {
-      font-size: 0.7rem;
-    }
+export const DescriptionMobile = styled(motion.p)`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    font-size: 0.7rem;
+    position: absolute;
+    top: 0;
+  }
+`;
+
+export const DescriptionDesktop = styled.p`
+  font-size: 1rem;
+  margin: 0;
+  line-height: 120%;
+  display: block;
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -90,22 +112,18 @@ export const ContentDetails = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 9%;
 `;
 
-export const Made = styled.div`
+export const Made = styled.p`
   display: flex;
   white-space: nowrap;
-
-  span {
-    margin-left: 0.5rem;
-  }
+  gap: 1rem;
 `;
 
 export const LinkContainer = styled.div`
   display: flex;
   white-space: nowrap;
-  gap: 1.5rem;
+  gap: 1rem;
 
   a {
     text-decoration: none;
@@ -120,35 +138,30 @@ export const LinkContainer = styled.div`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   height: 25%;
+  gap: 0 1.2rem;
 `;
 
-export const ProjButton = styled.div`
-  padding: 0;
-`;
-
-export const ProjLabel = styled.label`
-  font-family: "Gazpacho";
+export const ProjButton = styled.button`
+  font-family: "Century";
   font-weight: 700;
   display: inline-block;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 1rem;
   position: relative;
   padding: 0.3rem;
   text-align: center;
   opacity: 1;
   transition: all 0.2s ease-in-out;
+  text-transform: capitalize;
 
   &:hover,
   &:focus {
     opacity: 0.5;
   }
-`;
-
-export const RadioInput = styled.input.attrs({ type: "radio" })`
-  display: none;
 `;

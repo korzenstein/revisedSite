@@ -37,18 +37,21 @@ export const StyledH2 = styled.h2`
   color: #231f20;
   margin-bottom: 18px;
   font-size: 2rem;
+  margin-top: 1rem;
 
   @media (max-width: 768px) {
     font-size: 1.6rem; /* Reduce font size for tablets and small screens */
     line-height: 1.6rem;
     padding-bottom: 0.5rem;
+    margin-top: 0.8rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.4rem; /* Further reduce for mobile devices */
-    line-height: 1.4rem;
+    font-size: 1.4rem;
+    line-height: 90%;
     padding-bottom: 0.4rem;
-    margin-bottom: 12px; /* Adjust spacing */
+    margin-bottom: 12px;
+    margin-top: 0.5rem;
   }
 `;
 

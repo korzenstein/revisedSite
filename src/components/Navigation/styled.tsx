@@ -24,19 +24,19 @@ export const StyledH1 = styled.h1<{ $currentSection: string }>`
     props.$currentSection === "portfolio" ? "white" : "#231f20"};
 
   @media (max-width: 768px) {
-    font-size: 2.4rem;
-    line-height: 2.4rem;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
   }
 
   @media (max-width: 480px) {
     font-size: 1.8rem;
-    line-height: 2rem;
+    line-height: 90%;
   }
 `;
 
 export const NavList = styled.ul<{ $isOpen: boolean }>`
   display: flex;
-  gap: 3rem;
+  gap: 1rem;
   justify-content: space-between;
   list-style: none;
   padding: 0;
@@ -47,7 +47,7 @@ export const NavList = styled.ul<{ $isOpen: boolean }>`
     top: 0;
     right: 0;
     height: 100%;
-    background-color: white;
+    background-color: rgba(248, 194, 204, 0.9);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -107,9 +107,13 @@ export const NavLink = styled.a<{
   }
 `;
 
-export const IconSpan = styled.span`
+export const IconSpan = styled.span<{ $currentSection: string }>`
   img {
     width: 24px;
     height: 24px;
+    transition: filter 0.3s ease-in-out;
+
+    filter: ${(props) =>
+      props.$currentSection === "portfolio" ? "invert(1)" : "invert(0)"};
   }
 `;
