@@ -40,7 +40,7 @@ export const Project = styled.div`
 `;
 
 export const ImgContainer = styled.div<{ $isDimmed: boolean }>`
-  max-width: 40%;
+  max-width: 48%;
   min-width: 250px;
   margin-right: 1.5rem;
   border-radius: 1rem;
@@ -56,12 +56,11 @@ export const ImgContainer = styled.div<{ $isDimmed: boolean }>`
   @media (max-width: 768px) {
     max-width: 100%;
     min-width: 100px;
-    /* width: 100%; */
+    width: auto;
     margin-right: 0rem;
     position: relative;
     cursor: pointer;
-    opacity: ${(props) =>
-      props.$isDimmed ? 0.5 : 1}; /* Dim image when $isDimmed is true */
+    opacity: ${(props) => (props.$isDimmed ? 0.5 : 1)};
   }
 `;
 
@@ -81,6 +80,7 @@ export const Content = styled.div`
   }
 
   @media (max-width: 768px) {
+    width: 100%;
     h4 {
       font-size: 0.8rem;
     }
@@ -91,17 +91,21 @@ export const DescriptionMobile = styled(motion.p)`
   display: none;
   @media (max-width: 768px) {
     display: block;
-    font-size: 0.7rem;
+    font-size: 1rem;
+    line-height: 1.1rem;
     position: absolute;
     top: 0;
+    padding: 1rem;
   }
 `;
 
 export const DescriptionDesktop = styled.p`
-  font-size: 1rem;
+  font-size: 1.35rem;
   margin: 0;
-  line-height: 120%;
+  line-height: 110%;
   display: block;
+  font-weight: 600;
+  font-family: "Helvetica";
   @media (max-width: 768px) {
     display: none;
   }
@@ -110,20 +114,33 @@ export const DescriptionDesktop = styled.p`
 export const ContentDetails = styled.div`
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   flex-wrap: wrap;
+  font-family: "Helvetica";
+  font-size: 1.2rem;
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+    width: 100%;
+  }
 `;
 
 export const Made = styled.p`
   display: flex;
   white-space: nowrap;
   gap: 1rem;
+  font-family: "Helvetica";
+  font-size: 1.2rem;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const LinkContainer = styled.div`
   display: flex;
   white-space: nowrap;
   gap: 1rem;
+  font-size: 1rem;
 
   a {
     text-decoration: none;
@@ -133,6 +150,9 @@ export const LinkContainer = styled.div`
     &:focus {
       text-decoration: underline;
     }
+  }
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
 

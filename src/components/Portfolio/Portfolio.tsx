@@ -58,10 +58,11 @@ const Portfolio: React.FC = () => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
+                style={{ width: "100%" }}
               >
                 <Project>
                   <ImgContainer
-                    isDimmed={isDescriptionVisible}
+                    $isDimmed={isDescriptionVisible}
                     onClick={toggleDescription}
                   >
                     <img
@@ -88,14 +89,15 @@ const Portfolio: React.FC = () => {
                       <LinkContainer>
                         {projects[currentProjectIndex].githubLink && (
                           <a href={projects[currentProjectIndex].githubLink}>
-                            GitHub Repo
+                            GitHub
                           </a>
                         )}
                         <a href={projects[currentProjectIndex].liveLink}>
-                          Live Link
+                          Link
                         </a>
                       </LinkContainer>
                       <Made>
+                        Built with:
                         {projects[currentProjectIndex].madeWith.map((tech) => (
                           <span key={tech}>{tech}</span>
                         ))}

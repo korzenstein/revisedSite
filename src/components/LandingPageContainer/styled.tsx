@@ -32,11 +32,11 @@ export const Section = styled.section`
 export const StyledH2 = styled.h2`
   border-bottom: 2px #231f20 solid;
   display: inline-block;
-  line-height: 1.8rem;
+  line-height: 1.6rem;
   padding-bottom: 0.65rem;
   color: #231f20;
   margin-bottom: 18px;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-top: 1rem;
 
   @media (max-width: 768px) {

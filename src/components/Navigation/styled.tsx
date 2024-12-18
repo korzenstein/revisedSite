@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const NavigationContainer = styled.nav`
   display: flex;
@@ -15,8 +15,8 @@ export const NavigationContainer = styled.nav`
 export const StyledH1 = styled.h1<{ $currentSection: string }>`
   display: flex;
   flex-direction: column;
-  font-size: 3.2rem;
-  line-height: 3.2rem;
+  font-size: 3rem;
+  line-height: 3rem;
   margin: 0;
   text-transform: uppercase;
   transition: color 0.5s ease-in-out;

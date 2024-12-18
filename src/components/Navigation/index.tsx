@@ -4,7 +4,6 @@ import {
   NavButtonToggle,
   NavLink,
   NavList,
-  NavButton,
   IconSpan,
   StyledH1,
 } from "./styled";
