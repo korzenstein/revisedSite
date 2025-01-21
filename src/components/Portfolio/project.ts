@@ -31,7 +31,7 @@ export const projects = [
       "This platform elegantly spotlights Google’s Chromebook as a capable gaming hub, seamlessly integrating thousands of titles into its ecosystem. Its design ensures users can effortlessly connect with an expansive range of games. The result highlights the device’s unexpectedly robust entertainment potential.",
     madeWith: ["Google Lit", "CSS3", "Contentful", "JavaScript"],
     imgSrc: ChromeImage,
-    liveLink: "https://www.judgeseyesonly.com/verizon-catch-my-iphone/",
+    liveLink: "https://www.chromebookgaminghub.com/",
   },
   
   {
